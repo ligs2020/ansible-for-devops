@@ -15,4 +15,6 @@ jobs:
           python-version: '3.x'
       - name: Install ansible lint
         run: pip3 install ansible-lint
+      - name: Run Ansible lint for molecule
+        run: ansible-lint molecule/main.yml
 
