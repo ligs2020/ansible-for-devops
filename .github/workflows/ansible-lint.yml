@@ -1,18 +1,17 @@
 ---
-name: CI
-'on': workflow_dispatch
+name: AnsibleLint
+on: workflow_dispatch
  
 jobs:
-  scripts:
+  Setup:
     name: Setup 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
+      - name: Setup Python3  
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
       - name: Install ansible lint
-      - name: Run Ansible lint script.
         run: pip3 install ansible-lint
 
