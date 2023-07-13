@@ -24,9 +24,11 @@ jobs:
           export PATH="$PATH:/opt/sonar-scanner/bin"
           sonar-scanner -v
       - name: Run Ansible lint for molecule 
-        run: ansible-lint molecule/main.yml
+        run: |
+          pwd
       - name: Run Sonar Scanner
         run: | 
+           cd molecule
            /opt/sonar-scanner/bin/sonar-scanner -Dsonar.token=sqa_7914573697106e41b0b1ae39b58914299ddfe76a 
       
 
