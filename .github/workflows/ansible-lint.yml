@@ -28,6 +28,6 @@ jobs:
       - name: Run Sonar Scanner
         run: | 
            cd molecule
-           sonar-scanner 
+           /opt/sonar-scanner/bin/sonar-scanner 
       
 
