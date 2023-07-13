@@ -25,5 +25,9 @@ jobs:
           sonar-scanner -v
       - name: Run Ansible lint for molecule 
         run: ansible-lint molecule/main.yml
+      - name: Run Sonar Scanner
+        run: | 
+           cd molecules
+           sonar-scanner 
       
 
