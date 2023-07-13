@@ -28,6 +28,6 @@ jobs:
       - name: Run Sonar Scanner
         run: | 
            cd molecule
-           /opt/sonar-scanner/bin/sonar-scanner -Dsonar.token=sqa_a1c31b3a7bba37e34ed43983047c613404bc5473 
+           /opt/sonar-scanner/bin/sonar-scanner -Dsonar.token=sqa_9515650a8617a49225df3e84273ab33c669e7031 
       
 
