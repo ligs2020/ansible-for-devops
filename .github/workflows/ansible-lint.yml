@@ -28,7 +28,7 @@ jobs:
           pwd
       - name: Run Sonar Scanner
         run: | 
-           cd molecule
+           
            /opt/sonar-scanner/bin/sonar-scanner -Dsonar.token=sqa_c5c6a8d3e969b8d9059e6a8f7926dacf909c8d27
       
 
