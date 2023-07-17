@@ -1,0 +1,32 @@
+---
+name: AnsibleLint
+on: workflow_dispatch
+ 
+jobs:
+  Setup:
+    name: Setup 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v2
+      - name: Setup Python3  
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install sonar-scanner
+        run: |
+          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip
+          unzip sonar-scanner-cli-4.2.0.1873-linux.zip
+          pwd
+          mv sonar-scanner-4.2.0.1873-linux /opt/sonar-scanner
+          export PATH="$PATH:/opt/sonar-scanner/bin"
+          sonar-scanner -v
+      - name: Run Ansible lint for molecule 
+        run: |
+          pwd
+      - name: Run Sonar Scanner
+        run: | 
+           
+           /opt/sonar-scanner/bin/sonar-scanner -Dsonar.token=sqa_c5c6a8d3e969b8d9059e6a8f7926dacf909c8d27
+      
