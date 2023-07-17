@@ -1,5 +1,5 @@
 ---
-name: AnsibleLint
+name: Ansible2
 on: workflow_dispatch
  
 jobs:
