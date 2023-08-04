@@ -19,4 +19,5 @@ jobs:
         run: |
            cd molecule
            ansible-lint --version
-           ansible-lint 
+           ansible-lint --offline -v -f sarif
+           
