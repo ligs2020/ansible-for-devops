@@ -18,4 +18,5 @@ jobs:
       - name: Run Ansible lint
         run: |
            cd molecule
+           ansible-lint --version
            ansible-lint 
