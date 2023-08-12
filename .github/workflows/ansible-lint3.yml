@@ -19,5 +19,5 @@ jobs:
         run: |
            cd molecule
            ansible-lint --version
-           ansible-lint --offline -v -p
+           ansible-lint -p
            
