@@ -19,5 +19,9 @@ jobs:
         run: |
            cd molecule
            ansible-lint --version
-           ansible-lint -p
+           ansible-lint -p > log.txt 2> errorlog.txt
+           echo "Printing log"
+           cat log.txt
+           echo "Printing error logs"
+           cat errorlog.txt
            
