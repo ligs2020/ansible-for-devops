@@ -7,21 +7,21 @@ lint: |
   set -e
   yamllint .
   ansible-lint
-platforms:
-  - name: instance
-    image: ubuntu:20.04
-    dockerfile: Dockerfile
-    command: /lib/systemd/systemd
-    privileged: true
-    pre_build_image: false  
 # platforms:
 #   - name: instance
-#     image: "geerlingguy/docker-${MOLECULE_DISTRO:-rockylinux8}-ansible:latest"
-#     command: ""
-#     volumes:
-#       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+#     image: ubuntu:20.04
+#     dockerfile: Dockerfile
+#     command: /lib/systemd/systemd
 #     privileged: true
-#     pre_build_image: true
+#     pre_build_image: false  
+platforms:
+  - name: instance
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-rockylinux8}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    privileged: true
+    pre_build_image: true
 provisioner:
   name: ansible
 verifier:
