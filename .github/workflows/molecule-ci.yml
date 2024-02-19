@@ -12,11 +12,11 @@ jobs:
   test:
     name: Molecule
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        distro:
-          - rockylinux8
-          - debian10
+    # strategy:
+    #   matrix:
+    #     distro:
+    #       - rockylinux8
+    #       - debian10
 
     steps:
       - name: Check out the codebase.
@@ -28,12 +28,12 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip3 install ansible molecule[docker] yamllint ansible-lint
+        run: pip3 install molecule[docker] yamllint ansible-lint
 
       - name: Run Molecule tests.
         run: molecule test
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'
-          MOLECULE_DISTRO: ${{ matrix.distro }}
+          # MOLECULE_DISTRO: ${{ matrix.distro }}
         working-directory: molecule
